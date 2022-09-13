@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group 'org.skyshop'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+    maven { url 'https://maven.aliyun.com/repository/central' }
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenLocal()
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-devtools'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation "org.springdoc:springdoc-openapi-ui:1.6.6"
+        implementation 'org.assertj:assertj-core:3.22.0'
+        implementation 'de.codecentric:chaos-monkey-spring-boot:2.5.4'
+        implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+        compileOnly 'org.projectlombok:lombok:1.18.24'
+        annotationProcessor 'org.projectlombok:lombok:1.18.24'
+        testCompileOnly 'org.projectlombok:lombok:1.18.24'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+    }
+    dependencyManagement {
+
+        // 导入SpringCloud依赖Bom
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.1"
+        }
+        test {
+            useJUnitPlatform()
+        }
+        compileJava {
+            sourceCompatibility = 1.8
+            targetCompatibility = 1.8
+        }
+
+    }
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
