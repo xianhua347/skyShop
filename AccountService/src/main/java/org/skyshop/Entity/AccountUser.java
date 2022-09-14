@@ -1,122 +1,106 @@
 package org.skyshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 账户
  */
 @Entity
-@ApiModel("账户")
 @Table(name = "account_user")
-public class AccountUser {
+public class AccountUser implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 账号id
      */
     @Id
-    @ApiModelProperty("账号id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
 
     /**
      * 邮箱
      */
-    @ApiModelProperty("邮箱")
     @Column(name = "email", nullable = false)
-    private String email;
+    private String email = "";
 
     /**
      * 手机号
      */
-    @ApiModelProperty("手机号")
     @Column(name = "phone", nullable = false)
-    private String phone;
+    private String phone = "";
 
     /**
      * 用户名
      */
-    @ApiModelProperty("用户名")
     @Column(name = "username", nullable = false)
-    private String username;
+    private String username = "";
 
     /**
      * 密码
      */
-    @ApiModelProperty("密码")
     @Column(name = "password", nullable = false)
-    private String password;
+    private String password = "";
 
     /**
      * 创建时间
      */
-    @ApiModelProperty("创建时间")
     @Column(name = "create_at", nullable = false)
-    private Integer createAt;
+    private Integer createAt = 0;
 
     /**
      * 创建ip
      */
-    @ApiModelProperty("创建ip")
     @Column(name = "create_ip_at", nullable = false)
-    private String createIpAt;
+    private String createIpAt = "";
 
     /**
      * 最后一次登录时间
      */
-    @ApiModelProperty("最后一次登录时间")
     @Column(name = "last_login_at", nullable = false)
-    private Integer lastLoginAt;
+    private Integer lastLoginAt = 0;
 
     /**
      * 最后一次登录ip
      */
-    @ApiModelProperty("最后一次登录ip")
     @Column(name = "last_login_ip_at", nullable = false)
-    private String lastLoginIpAt;
+    private String lastLoginIpAt = "";
 
     /**
      * 登录次数
      */
-    @ApiModelProperty("登录次数")
     @Column(name = "login_times", nullable = false)
-    private Integer loginTimes;
+    private Integer loginTimes = 0;
 
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
     @Column(name = "status", nullable = false)
-    @ApiModelProperty("状态 1:enable, 0:disable, -1:deleted")
-    private Integer status;
+    private Integer status = 0;
 
     /**
      * 账号id
      */
-    public void setId(String id) {
+    public AccountUser setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     /**
      * 账号id
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * 邮箱
      */
-    public void setEmail(String email) {
+    public AccountUser setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     /**
@@ -129,8 +113,9 @@ public class AccountUser {
     /**
      * 手机号
      */
-    public void setPhone(String phone) {
+    public AccountUser setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     /**
@@ -143,8 +128,9 @@ public class AccountUser {
     /**
      * 用户名
      */
-    public void setUsername(String username) {
+    public AccountUser setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     /**
@@ -157,8 +143,9 @@ public class AccountUser {
     /**
      * 密码
      */
-    public void setPassword(String password) {
+    public AccountUser setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     /**
@@ -171,8 +158,9 @@ public class AccountUser {
     /**
      * 创建时间
      */
-    public void setCreateAt(Integer createAt) {
+    public AccountUser setCreateAt(Integer createAt) {
         this.createAt = createAt;
+        return this;
     }
 
     /**
@@ -185,8 +173,9 @@ public class AccountUser {
     /**
      * 创建ip
      */
-    public void setCreateIpAt(String createIpAt) {
+    public AccountUser setCreateIpAt(String createIpAt) {
         this.createIpAt = createIpAt;
+        return this;
     }
 
     /**
@@ -199,8 +188,9 @@ public class AccountUser {
     /**
      * 最后一次登录时间
      */
-    public void setLastLoginAt(Integer lastLoginAt) {
+    public AccountUser setLastLoginAt(Integer lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
+        return this;
     }
 
     /**
@@ -213,8 +203,9 @@ public class AccountUser {
     /**
      * 最后一次登录ip
      */
-    public void setLastLoginIpAt(String lastLoginIpAt) {
+    public AccountUser setLastLoginIpAt(String lastLoginIpAt) {
         this.lastLoginIpAt = lastLoginIpAt;
+        return this;
     }
 
     /**
@@ -227,8 +218,9 @@ public class AccountUser {
     /**
      * 登录次数
      */
-    public void setLoginTimes(Integer loginTimes) {
+    public AccountUser setLoginTimes(Integer loginTimes) {
         this.loginTimes = loginTimes;
+        return this;
     }
 
     /**
@@ -241,8 +233,9 @@ public class AccountUser {
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
-    public void setStatus(Integer status) {
+    public AccountUser setStatus(Integer status) {
         this.status = status;
+        return this;
     }
 
     /**

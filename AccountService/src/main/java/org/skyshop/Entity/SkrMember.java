@@ -1,29 +1,21 @@
 package org.skyshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 账户信息
  */
 @Entity
-@ApiModel("账户信息")
 @Table(name = "skr_member")
-public class SkrMember {
+public class SkrMember implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 用户id
      */
     @Id
-    @ApiModelProperty("用户id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -31,57 +23,51 @@ public class SkrMember {
     /**
      * 账号id
      */
-    @ApiModelProperty("账号id")
     @Column(name = "uid", nullable = false)
-    private String uid;
+    private String uid = "0";
 
     /**
      * 昵称
      */
-    @ApiModelProperty("昵称")
     @Column(name = "nickname", nullable = false)
-    private String nickname;
+    private String nickname = "";
 
     /**
      * 头像(相对路径)
      */
-    @ApiModelProperty("头像(相对路径)")
     @Column(name = "avatar", nullable = false)
-    private String avatar;
+    private String avatar = "";
 
     /**
      * 性别
      */
-    @ApiModelProperty("性别")
     @Column(name = "gender", nullable = false)
-    private String gender;
+    private String gender = "unknow";
 
     /**
      * 角色 0:普通用户 1:vip
      */
-    @ApiModelProperty("角色 0:普通用户 1:vip")
     @Column(name = "role", nullable = false)
-    private String role;
+    private String role = "0";
 
     /**
      * 创建时间
      */
-    @ApiModelProperty("创建时间")
     @Column(name = "create_at", nullable = false)
-    private Integer createAt;
+    private Integer createAt = 0;
 
     /**
      * 更新时间
      */
-    @ApiModelProperty("更新时间")
     @Column(name = "update_at", nullable = false)
-    private Integer updateAt;
+    private Integer updateAt = 0;
 
     /**
      * 用户id
      */
-    public void setId(String id) {
+    public SkrMember setId(String id) {
         this.id = id;
+        return this;
     }
 
     /**
@@ -94,8 +80,9 @@ public class SkrMember {
     /**
      * 账号id
      */
-    public void setUid(String uid) {
+    public SkrMember setUid(String uid) {
         this.uid = uid;
+        return this;
     }
 
     /**
@@ -108,8 +95,9 @@ public class SkrMember {
     /**
      * 昵称
      */
-    public void setNickname(String nickname) {
+    public SkrMember setNickname(String nickname) {
         this.nickname = nickname;
+        return this;
     }
 
     /**
@@ -122,8 +110,9 @@ public class SkrMember {
     /**
      * 头像(相对路径)
      */
-    public void setAvatar(String avatar) {
+    public SkrMember setAvatar(String avatar) {
         this.avatar = avatar;
+        return this;
     }
 
     /**
@@ -136,8 +125,9 @@ public class SkrMember {
     /**
      * 性别
      */
-    public void setGender(String gender) {
+    public SkrMember setGender(String gender) {
         this.gender = gender;
+        return this;
     }
 
     /**
@@ -150,8 +140,9 @@ public class SkrMember {
     /**
      * 角色 0:普通用户 1:vip
      */
-    public void setRole(String role) {
+    public SkrMember setRole(String role) {
         this.role = role;
+        return this;
     }
 
     /**
@@ -164,8 +155,9 @@ public class SkrMember {
     /**
      * 创建时间
      */
-    public void setCreateAt(Integer createAt) {
+    public SkrMember setCreateAt(Integer createAt) {
         this.createAt = createAt;
+        return this;
     }
 
     /**
@@ -178,8 +170,9 @@ public class SkrMember {
     /**
      * 更新时间
      */
-    public void setUpdateAt(Integer updateAt) {
+    public SkrMember setUpdateAt(Integer updateAt) {
         this.updateAt = updateAt;
+        return this;
     }
 
     /**

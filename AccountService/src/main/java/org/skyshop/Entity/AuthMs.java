@@ -1,29 +1,21 @@
 package org.skyshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 系统map(登记目前存在的后台系统信息)
  */
 @Entity
 @Table(name = "auth_ms")
-@ApiModel("系统map(登记目前存在的后台系统信息)")
-public class AuthMs {
+public class AuthMs implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自增id
      */
     @Id
-    @ApiModelProperty("自增id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -31,64 +23,57 @@ public class AuthMs {
     /**
      * 系统名称
      */
-    @ApiModelProperty("系统名称")
     @Column(name = "ms_name", nullable = false)
-    private String msName;
+    private String msName = "0";
 
     /**
      * 系描述
      */
-    @ApiModelProperty("系描述")
     @Column(name = "ms_desc", nullable = false)
-    private String msDesc;
+    private String msDesc = "0";
 
     /**
      * 系统域名
      */
-    @ApiModelProperty("系统域名")
     @Column(name = "ms_domain", nullable = false)
-    private String msDomain;
+    private String msDomain = "0";
 
     /**
      * 创建时间
      */
-    @ApiModelProperty("创建时间")
     @Column(name = "create_at", nullable = false)
-    private Integer createAt;
+    private Integer createAt = 0;
 
     /**
      * 创建人staff_id
      */
-    @ApiModelProperty("创建人staff_id")
     @Column(name = "create_by", nullable = false)
-    private Integer createBy;
+    private Integer createBy = 0;
 
     /**
      * 更新时间
      */
-    @ApiModelProperty("更新时间")
     @Column(name = "update_at", nullable = false)
-    private Integer updateAt;
+    private Integer updateAt = 0;
 
     /**
      * 修改人staff_id
      */
-    @ApiModelProperty("修改人staff_id")
     @Column(name = "update_by", nullable = false)
-    private Integer updateBy;
+    private Integer updateBy = 0;
 
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
     @Column(name = "status", nullable = false)
-    @ApiModelProperty("状态 1:enable, 0:disable, -1:deleted")
-    private Integer status;
+    private Integer status = 0;
 
     /**
      * 自增id
      */
-    public void setId(String id) {
+    public AuthMs setId(String id) {
         this.id = id;
+        return this;
     }
 
     /**
@@ -101,8 +86,9 @@ public class AuthMs {
     /**
      * 系统名称
      */
-    public void setMsName(String msName) {
+    public AuthMs setMsName(String msName) {
         this.msName = msName;
+        return this;
     }
 
     /**
@@ -115,8 +101,9 @@ public class AuthMs {
     /**
      * 系描述
      */
-    public void setMsDesc(String msDesc) {
+    public AuthMs setMsDesc(String msDesc) {
         this.msDesc = msDesc;
+        return this;
     }
 
     /**
@@ -129,8 +116,9 @@ public class AuthMs {
     /**
      * 系统域名
      */
-    public void setMsDomain(String msDomain) {
+    public AuthMs setMsDomain(String msDomain) {
         this.msDomain = msDomain;
+        return this;
     }
 
     /**
@@ -143,8 +131,9 @@ public class AuthMs {
     /**
      * 创建时间
      */
-    public void setCreateAt(Integer createAt) {
+    public AuthMs setCreateAt(Integer createAt) {
         this.createAt = createAt;
+        return this;
     }
 
     /**
@@ -157,8 +146,9 @@ public class AuthMs {
     /**
      * 创建人staff_id
      */
-    public void setCreateBy(Integer createBy) {
+    public AuthMs setCreateBy(Integer createBy) {
         this.createBy = createBy;
+        return this;
     }
 
     /**
@@ -171,8 +161,9 @@ public class AuthMs {
     /**
      * 更新时间
      */
-    public void setUpdateAt(Integer updateAt) {
+    public AuthMs setUpdateAt(Integer updateAt) {
         this.updateAt = updateAt;
+        return this;
     }
 
     /**
@@ -185,8 +176,9 @@ public class AuthMs {
     /**
      * 修改人staff_id
      */
-    public void setUpdateBy(Integer updateBy) {
+    public AuthMs setUpdateBy(Integer updateBy) {
         this.updateBy = updateBy;
+        return this;
     }
 
     /**
@@ -199,8 +191,9 @@ public class AuthMs {
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
-    public void setStatus(Integer status) {
+    public AuthMs setStatus(Integer status) {
         this.status = status;
+        return this;
     }
 
     /**

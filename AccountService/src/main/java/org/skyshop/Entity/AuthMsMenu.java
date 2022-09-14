@@ -1,29 +1,21 @@
 package org.skyshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 系统menu
  */
 @Entity
-@ApiModel("系统menu")
 @Table(name = "auth_ms_menu")
-public class AuthMsMenu {
+public class AuthMsMenu implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自增id
      */
     @Id
-    @ApiModelProperty("自增id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -31,85 +23,75 @@ public class AuthMsMenu {
     /**
      * 系统id
      */
-    @ApiModelProperty("系统id")
     @Column(name = "ms_id", nullable = false)
-    private String msId;
+    private String msId = "0";
 
     /**
      * 父菜单id
      */
-    @ApiModelProperty("父菜单id")
     @Column(name = "parent_id", nullable = false)
-    private String parentId;
+    private String parentId = "0";
 
     /**
      * 菜单名称
      */
-    @ApiModelProperty("菜单名称")
     @Column(name = "menu_name", nullable = false)
-    private String menuName;
+    private String menuName = "0";
 
     /**
      * 菜描述
      */
-    @ApiModelProperty("菜描述")
     @Column(name = "menu_desc", nullable = false)
-    private String menuDesc;
+    private String menuDesc = "0";
 
     /**
      * 菜单uri
      */
-    @ApiModelProperty("菜单uri")
     @Column(name = "menu_uri", nullable = false)
-    private String menuUri;
+    private String menuUri = "0";
 
     /**
      * 创建时间
      */
-    @ApiModelProperty("创建时间")
     @Column(name = "create_at", nullable = false)
-    private Integer createAt;
+    private Integer createAt = 0;
 
     /**
      * 是否展示菜单
      */
-    @ApiModelProperty("是否展示菜单")
     @Column(name = "is_show", nullable = false)
-    private Boolean show;
+    private Boolean show = Boolean.FALSE;
 
     /**
      * 创建人staff_id
      */
-    @ApiModelProperty("创建人staff_id")
     @Column(name = "create_by", nullable = false)
-    private Integer createBy;
+    private Integer createBy = 0;
 
     /**
      * 更新时间
      */
-    @ApiModelProperty("更新时间")
     @Column(name = "update_at", nullable = false)
-    private Integer updateAt;
+    private Integer updateAt = 0;
 
     /**
      * 修改人staff_id
      */
-    @ApiModelProperty("修改人staff_id")
     @Column(name = "update_by", nullable = false)
-    private Integer updateBy;
+    private Integer updateBy = 0;
 
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
     @Column(name = "status", nullable = false)
-    @ApiModelProperty("状态 1:enable, 0:disable, -1:deleted")
-    private Integer status;
+    private Integer status = 0;
 
     /**
      * 自增id
      */
-    public void setId(String id) {
+    public AuthMsMenu setId(String id) {
         this.id = id;
+        return this;
     }
 
     /**
@@ -122,8 +104,9 @@ public class AuthMsMenu {
     /**
      * 系统id
      */
-    public void setMsId(String msId) {
+    public AuthMsMenu setMsId(String msId) {
         this.msId = msId;
+        return this;
     }
 
     /**
@@ -136,8 +119,9 @@ public class AuthMsMenu {
     /**
      * 父菜单id
      */
-    public void setParentId(String parentId) {
+    public AuthMsMenu setParentId(String parentId) {
         this.parentId = parentId;
+        return this;
     }
 
     /**
@@ -150,8 +134,9 @@ public class AuthMsMenu {
     /**
      * 菜单名称
      */
-    public void setMenuName(String menuName) {
+    public AuthMsMenu setMenuName(String menuName) {
         this.menuName = menuName;
+        return this;
     }
 
     /**
@@ -164,8 +149,9 @@ public class AuthMsMenu {
     /**
      * 菜描述
      */
-    public void setMenuDesc(String menuDesc) {
+    public AuthMsMenu setMenuDesc(String menuDesc) {
         this.menuDesc = menuDesc;
+        return this;
     }
 
     /**
@@ -178,8 +164,9 @@ public class AuthMsMenu {
     /**
      * 菜单uri
      */
-    public void setMenuUri(String menuUri) {
+    public AuthMsMenu setMenuUri(String menuUri) {
         this.menuUri = menuUri;
+        return this;
     }
 
     /**
@@ -192,8 +179,9 @@ public class AuthMsMenu {
     /**
      * 创建时间
      */
-    public void setCreateAt(Integer createAt) {
+    public AuthMsMenu setCreateAt(Integer createAt) {
         this.createAt = createAt;
+        return this;
     }
 
     /**
@@ -206,8 +194,9 @@ public class AuthMsMenu {
     /**
      * 是否展示菜单
      */
-    public void setShow(Boolean show) {
+    public AuthMsMenu setShow(Boolean show) {
         this.show = show;
+        return this;
     }
 
     /**
@@ -220,8 +209,9 @@ public class AuthMsMenu {
     /**
      * 创建人staff_id
      */
-    public void setCreateBy(Integer createBy) {
+    public AuthMsMenu setCreateBy(Integer createBy) {
         this.createBy = createBy;
+        return this;
     }
 
     /**
@@ -234,8 +224,9 @@ public class AuthMsMenu {
     /**
      * 更新时间
      */
-    public void setUpdateAt(Integer updateAt) {
+    public AuthMsMenu setUpdateAt(Integer updateAt) {
         this.updateAt = updateAt;
+        return this;
     }
 
     /**
@@ -248,8 +239,9 @@ public class AuthMsMenu {
     /**
      * 修改人staff_id
      */
-    public void setUpdateBy(Integer updateBy) {
+    public AuthMsMenu setUpdateBy(Integer updateBy) {
         this.updateBy = updateBy;
+        return this;
     }
 
     /**
@@ -262,8 +254,9 @@ public class AuthMsMenu {
     /**
      * 状态 1:enable, 0:disable, -1:deleted
      */
-    public void setStatus(Integer status) {
+    public AuthMsMenu setStatus(Integer status) {
         this.status = status;
+        return this;
     }
 
     /**

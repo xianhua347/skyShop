@@ -1,29 +1,21 @@
 package org.skyshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * 第三方用户信息
  */
 @Entity
-@ApiModel("第三方用户信息")
 @Table(name = "account_platform")
-public class AccountPlatform {
+public class AccountPlatform implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 自增id
      */
     @Id
-    @ApiModelProperty("自增id")
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
@@ -31,64 +23,57 @@ public class AccountPlatform {
     /**
      * 账号id
      */
-    @ApiModelProperty("账号id")
     @Column(name = "uid", nullable = false)
-    private String uid;
+    private String uid = "0";
 
     /**
      * 平台id
      */
-    @ApiModelProperty("平台id")
     @Column(name = "platform_id", nullable = false)
-    private String platformId;
+    private String platformId = "";
 
     /**
      * 平台access_token
      */
-    @ApiModelProperty("平台access_token")
     @Column(name = "platform_token", nullable = false)
-    private String platformToken;
+    private String platformToken = "";
 
     /**
      * 平台类型 0:未知,1:facebook,2:google,3:wechat,4:qq,5:weibo,6:twitter
      */
     @Column(name = "type", nullable = false)
-    @ApiModelProperty("平台类型 0:未知,1:facebook,2:google,3:wechat,4:qq,5:weibo,6:twitter")
-    private Integer type;
+    private Integer type = 0;
 
     /**
      * 昵称
      */
-    @ApiModelProperty("昵称")
     @Column(name = "nickname", nullable = false)
-    private String nickname;
+    private String nickname = "";
 
     /**
      * 头像
      */
-    @ApiModelProperty("头像")
     @Column(name = "avatar", nullable = false)
-    private String avatar;
+    private String avatar = "";
 
     /**
      * 创建时间
      */
-    @ApiModelProperty("创建时间")
     @Column(name = "create_at", nullable = false)
-    private Integer createAt;
+    private Integer createAt = 0;
 
     /**
      * 更新时间
      */
-    @ApiModelProperty("更新时间")
     @Column(name = "update_at", nullable = false)
-    private Integer updateAt;
+    private Integer updateAt = 0;
 
     /**
      * 自增id
      */
-    public void setId(String id) {
+    public AccountPlatform setId(String id) {
         this.id = id;
+        return this;
     }
 
     /**
@@ -101,8 +86,9 @@ public class AccountPlatform {
     /**
      * 账号id
      */
-    public void setUid(String uid) {
+    public AccountPlatform setUid(String uid) {
         this.uid = uid;
+        return this;
     }
 
     /**
@@ -115,8 +101,9 @@ public class AccountPlatform {
     /**
      * 平台id
      */
-    public void setPlatformId(String platformId) {
+    public AccountPlatform setPlatformId(String platformId) {
         this.platformId = platformId;
+        return this;
     }
 
     /**
@@ -129,8 +116,9 @@ public class AccountPlatform {
     /**
      * 平台access_token
      */
-    public void setPlatformToken(String platformToken) {
+    public AccountPlatform setPlatformToken(String platformToken) {
         this.platformToken = platformToken;
+        return this;
     }
 
     /**
@@ -143,8 +131,9 @@ public class AccountPlatform {
     /**
      * 平台类型 0:未知,1:facebook,2:google,3:wechat,4:qq,5:weibo,6:twitter
      */
-    public void setType(Integer type) {
+    public AccountPlatform setType(Integer type) {
         this.type = type;
+        return this;
     }
 
     /**
@@ -157,8 +146,9 @@ public class AccountPlatform {
     /**
      * 昵称
      */
-    public void setNickname(String nickname) {
+    public AccountPlatform setNickname(String nickname) {
         this.nickname = nickname;
+        return this;
     }
 
     /**
@@ -171,8 +161,9 @@ public class AccountPlatform {
     /**
      * 头像
      */
-    public void setAvatar(String avatar) {
+    public AccountPlatform setAvatar(String avatar) {
         this.avatar = avatar;
+        return this;
     }
 
     /**
@@ -185,8 +176,9 @@ public class AccountPlatform {
     /**
      * 创建时间
      */
-    public void setCreateAt(Integer createAt) {
+    public AccountPlatform setCreateAt(Integer createAt) {
         this.createAt = createAt;
+        return this;
     }
 
     /**
@@ -199,8 +191,9 @@ public class AccountPlatform {
     /**
      * 更新时间
      */
-    public void setUpdateAt(Integer updateAt) {
+    public AccountPlatform setUpdateAt(Integer updateAt) {
         this.updateAt = updateAt;
+        return this;
     }
 
     /**
