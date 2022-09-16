@@ -52,4 +52,5 @@ springdoc:
   writer-with-default-pretty-printer: true
 
 logging:
-  config: classpath:log/logback-spring.xml
+  config: classpath:logback-spring.xml
+
