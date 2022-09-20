@@ -1,22 +1,30 @@
 package org.skyshop.Utils;
 
 public class AcEncode<T> {
-    private String id;
+    private String msg;
     private String code;
-    private T msg;
+    private T result;
 
-    private AcEncode(String id, String code, T msg) {
-        this.id = id;
-        this.code = code;
+    private AcEncode(String msg, String code, T result) {
         this.msg = msg;
+        this.code = code;
+        this.result = result;
     }
 
-    public String getId() {
-        return id;
+    public AcEncode getEncode(T result) {
+        return new AcEncode("ok", "200", result);
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public AcEncode getEncode(T result, String msg) {
+        return new AcEncode(msg, "200", result);
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public String getCode() {
@@ -27,11 +35,11 @@ public class AcEncode<T> {
         this.code = code;
     }
 
-    public T getMsg() {
-        return msg;
+    public T getResult() {
+        return result;
     }
 
-    public void setMsg(T msg) {
-        this.msg = msg;
+    public void setResult(T result) {
+        this.result = result;
     }
 }
