@@ -38,7 +38,7 @@ public class AccountUserController {
         accountUserService.update(id, vO);
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public ArrayList<String> getById(@PathVariable("id") Integer id) {
         final AccountUserDTO userDTO = accountUserService.getById(id);
         final ArrayList<String> arrayList = new ArrayList<>();
