@@ -1,6 +1,6 @@
 package org.skyshop.Controller;
 
-
+import org.apache.tomcat.jni.User;
 import org.skyshop.Service.AccountUserService;
 import org.skyshop.dto.AccountUserDTO;
 import org.skyshop.vo.AccountUserQueryVO;
@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import result.Result;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Validated
 @RestController
@@ -38,15 +38,18 @@ public class AccountUserController {
         accountUserService.update(id, vO);
     }
 
-    @GetMapping("/{id}")
-    public Result getById(@PathVariable("id") Integer id) {
+    @GetMapping("/get/{id}")
+    public ArrayList<String> getById(@PathVariable("id") Integer id) {
         final AccountUserDTO userDTO = accountUserService.getById(id);
-        return Result.success(userDTO);
+        final ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(String.valueOf(userDTO.getId()));
+        arrayList.add(userDTO.getUsername());
+        arrayList.add(userDTO.getEmail());
+        return arrayList;
     }
 
     @GetMapping
     public Page<AccountUserDTO> query(@Valid AccountUserQueryVO vO) {
         return accountUserService.query(vO);
     }
-
 }
