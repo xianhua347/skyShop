@@ -1,6 +1,5 @@
 package org.skyshop.Controller;
 
-import org.apache.tomcat.jni.User;
 import org.skyshop.Service.AccountUserService;
 import org.skyshop.dto.AccountUserDTO;
 import org.skyshop.vo.AccountUserQueryVO;
