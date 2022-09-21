@@ -1,4 +1,4 @@
-package Enums;
+package org.skyshop.Enums;
 
 public enum HttpStatusCode {
     CONTINUE(100, "Continue", "请继续发送请求的剩余部分"),
